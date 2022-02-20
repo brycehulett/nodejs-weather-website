@@ -52,16 +52,20 @@ app.get('/weather', (req, res)=>{
         })
     }
 
-    forecast(req.query.address, (error, {temperature, wind, precipitation} = {}) => {
-        console.log(error) 
+    forecast(req.query.address, (error, {name,country,temperature, wind, precipitation, feelslike, weather_descriptions} = {}) => {
+        console.log(error)
         if(error){
             return res.send({error})
         }
         res.send({
             address: req.query.address,
+            name,
+            country,
             temperature,
             precipitation,
-            wind
+            wind,
+            feelslike,
+            weather_descriptions
         })
 
       })

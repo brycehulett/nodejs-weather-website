@@ -61,3 +61,7 @@ button{
     color: #FFF;
     padding: 8px;
 }
+
+p{
+    white-space: pre-line;
+}
