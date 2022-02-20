@@ -5,6 +5,7 @@ import hbs from 'hbs'
 import {forecast} from './utils/forecast.mjs'
 
 const app = express()
+const port = process.env.PORT || 3000
 
 // define paths for Express config
 const __filename = fileURLToPath(import.meta.url);
@@ -95,7 +96,6 @@ app.get('*',(req, res)=>{
 })
 
 // starts the server and listens to a port (basic http is port 80)
-app.listen(3000, ()=>{
-    console.log('server is up on port 3000')
+app.listen(port, ()=>{
+    console.log(`server is up on port ${port}`)
 })   
-

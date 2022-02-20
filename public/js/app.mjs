@@ -10,18 +10,18 @@ weatherForm.addEventListener('submit', (e)=>{
 
     const location = search.value
 
-    fetch('http://localhost:3000/weather?address='+location).then((response)=>{
-    response.json().then((data)=>{
-        if(data.error){
-            messageOne.textContent = data.error
-            messageTwo.textContent = ''
-        }else{
-            messageOne.textContent = ''
-            const town = new String(data.address)[0].toUpperCase() + new String(data.address).slice(1)
-            let result = `It's ${data.temperature} degrees in ${town}` 
-            result += ` with ${data.precipitation}% precipitation and wind at ${data.wind} mph.`
-            messageTwo.textContent = result
-        }
+    fetch("/weather?address="+location).then((response)=>{
+        response.json().then((data)=>{
+            if(data.error){
+                messageOne.textContent = data.error
+                messageTwo.textContent = ''
+            }else{
+                messageOne.textContent = ''
+                const town = new String(data.address)[0].toUpperCase() + new String(data.address).slice(1)
+                let result = `It's ${data.temperature} degrees in ${town}` 
+                result += ` with ${data.precipitation}% precipitation and wind at ${data.wind} mph.`
+                messageTwo.textContent = result
+            }
+        })
     })
-})
 })
