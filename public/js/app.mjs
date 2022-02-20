@@ -20,7 +20,7 @@ weatherForm.addEventListener('submit', (e)=>{
                 //const town = new String(data.address)[0].toUpperCase() + new String(data.address).slice(1)
                 let result = `${data.name}, ${data.country}\r\n\r\n`
                 result += `It's ${data.temperature} degrees` 
-                result += ` with ${data.precipitation}% precipitation and wind at ${data.wind} mph.\r\n\r\n`
+                result += ` with ${data.precipitation}% precipitation and wind at ${data.wind} mph\r\n\r\n`
                 for(const d of data.weather_descriptions){
                     result += d + " "
                 }
